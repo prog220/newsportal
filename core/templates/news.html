@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Новости</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="create/">Создать</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wrappern">
+        {% for new in news %}
+            <h1 id="title">{{ new.title }}</h1>
+            <p>{{ new.text }}</p>
+        {% empty %}
+            <p>Данная новость не найдена</p>
+        {% endfor %}
+    </div>
+</body>
